@@ -21,10 +21,10 @@ function ToDoList({ tasks }) {
     return (
         <ScrollView>
             {tasks.map((task) => (
-                <Pressable>
-                <View style={[styles.task, styles.completed]}>
-                    <Text style={styles.taskText}>{task}</Text>
-                </View>
+                <Pressable key={task}>
+                    <View style={[styles.task, styles.completed]}>
+                        <Text style={styles.taskText}>{task}</Text>
+                    </View>
                 </Pressable>
             ))}
         </ScrollView>
