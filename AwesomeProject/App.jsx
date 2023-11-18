@@ -25,10 +25,14 @@ import { useState } from 'react';
 function App() {
   const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
 
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  }
+
   return (
     <SafeAreaView>
       <ToDoList tasks={tasks}/>
-      <ToDoForm/>
+      <ToDoForm addTask={addTask}/>
     </SafeAreaView>
   );
 }
