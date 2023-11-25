@@ -1,15 +1,11 @@
-"use strict";
-
 /**
  * My To Do List App
  *
  * @format
  */
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
 import React from 'react';
+import MainLayout from '../layouts/MainLayout';
 import {
   SafeAreaView,
   StyleSheet,
@@ -20,24 +16,23 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import ToDoList from './ToDoList';
-import ToDoForm from './ToDoForm';
-import { useState } from 'react';
 
 
-function App() {
-  const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
-  const Stack = createStackNavigator();
-
-  return (
-    <NavigationContainer>
-      <SafeAreaView>
-      <ToDoList tasks={tasks}/>
-      <ToDoForm/>
-      </SafeAreaView>
-    </NavigationContainer>
-    
-  );
+function HomeScreen({ navigation }) {
+    const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
+    const Stack = createStackNavigator();
+  
+    return (
+      <MainLayout>
+        <NavigationContainer>
+          <SafeAreaView>
+              <Button title="About" onPress={() => navigation.navigate('About')} />
+              <ToDoList tasks={tasks}/>
+              <ToDoForm/>
+          </SafeAreaView>
+        </NavigationContainer>
+      </MainLayout>
+    );  
 }
 
 const styles = StyleSheet.create({
@@ -69,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HomeScreen;

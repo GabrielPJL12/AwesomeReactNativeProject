@@ -1,15 +1,11 @@
-"use strict";
-
 /**
  * My To Do List App
  *
  * @format
  */
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
 import React from 'react';
+import MainLayout from '../layouts/MainLayout';
 import {
   SafeAreaView,
   StyleSheet,
@@ -20,24 +16,29 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import ToDoList from './ToDoList';
-import ToDoForm from './ToDoForm';
-import { useState } from 'react';
 
 
-function App() {
-  const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
-  const Stack = createStackNavigator();
+function HomeScreen() {
+    const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
+    const Stack = createStackNavigator();
+  
+    return (
+      <MainLayout>
+        <NavigationContainer>
+          <SafeAreaView>
+              <div>
+                <h2>About Screen</h2>
+                <p>This is the about screen</p>
+                <p>App Name: AwesomeProject</p>
+                <p>By: Gabriel Leclerc</p>
+                <p>Current Date: 11/24/2023</p>
+              </div>
+          </SafeAreaView>
+        </NavigationContainer>
+      </MainLayout>
+      
 
-  return (
-    <NavigationContainer>
-      <SafeAreaView>
-      <ToDoList tasks={tasks}/>
-      <ToDoForm/>
-      </SafeAreaView>
-    </NavigationContainer>
-    
-  );
+    );  
 }
 
 const styles = StyleSheet.create({
@@ -69,4 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default HomeScreen;
