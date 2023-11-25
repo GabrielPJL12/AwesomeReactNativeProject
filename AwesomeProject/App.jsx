@@ -29,14 +29,23 @@ function App() {
   const [tasks, setTasks] = useState(['Do laundry', 'Go to gym', 'Walk dog']);
   const Stack = createStackNavigator();
 
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  }
+
   return (
     <NavigationContainer>
       <SafeAreaView>
       <ToDoList tasks={tasks}/>
+<<<<<<< HEAD
       <ToDoForm/>
       </SafeAreaView>
     </NavigationContainer>
     
+=======
+      <ToDoForm addTask={addTask}/>
+    </SafeAreaView>
+>>>>>>> a03cc4b79854d6068d66fd7f8097ff44c82715db
   );
 }
 
